@@ -1,47 +1,92 @@
 <!doctype html>
 <html>
-<head>
+  <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="/tailwind.css" rel="stylesheet">
 </head>
-<body class="h-screen bg-gradient-to-b from-blue-700 via-blue-500 to-blue-300">
+<body class="h-screen flex justify-center bg-fixed bg-gradient-to-b from-blue-700 via-blue-500 to-blue-300 overflow-hidden">
 
-  <form id="searchContainer" class="absolute top-0 right-0 min-w-max flex bg-white w-3/12 rounded-md m-6 p-3 ">
+  <div id='navBar' class="absolute top-0 right-0 flex p-3 m-2 items-center">
+    <!-- <button id='conversionButton' class="bg-transparent text-white border-2 h-10 w-14 rounded-md tracking-widest hover:bg-gray-50 hover:bg-opacity-10 focus:outline-none">C°/F°</button> -->
+    <form id="searchContainer" class="flex bg-white w-72 h-14 rounded-md ml-4 p-4">
+      <i id="searchIcon" class="fas fa-search text-2xl hover:text-gray-500 cursor-pointer"></i>
+      <label for="searchCity"></label>
+      <input type="search" id="searchCity" class="mx-3 h-auto w-full outline-none font-sans text-xl tracking-wide" placeholder="Search city..." autocomplete="off">
+    </form>
+  </div>
 
-    <i id="searchIcon" class="fas fa-search text-2xl hover:text-gray-600 cursor-pointer" ></i>
-    <label for="searchCity"></label>
-    <input type="search" id="searchCity" class="mx-3 h-auto w-full outline-none font-sans text-xl tracking-wide" placeholder="Search city..." autocomplete="off">
-  </form>
+  <div id="alertBox" class="absolute invisible bg-red-500 h-16 rounded-md text-white p-4">
+    <div class=""><span class="fas fa-bell pr-4 text-xl"></span> Please enter a valid city name...</div>
+  </div>
 
-  <div id="mainContainer" class="absolute inset-x-48 top-1/4 w-8/12 h-5/6 text-white font-sans font-thin">
+  <div id="mainContainer" class="flex-col m-28 p-12 w-10/12 max-w-6xl h-3/4 object-center min-w-min
+  bg-white bg-opacity-10 rounded-3xl divide-y-2 divide-gray-200 divide-opacity-30 text-white font-sans font-thin p-12">
 
-    <div id='weatherDisplay' class="absolute left-0">
-      <p id='city' class="text-5xl"></p>
-      <p id='date'></p>
-      <img src="" id='icon'>
-      <p id="info" class="text-4xl"></p>
+    <div class='flex h-3/5 max-h-80 justify-between m-6'>
+
+      <div id='weatherDisplay' class="md:space-y-2 lg:space-y-4 mr-6 tracking-widest">
+        <p id='city' class="text-6xl sm:pb-2"></p>
+        <p id='date' class="lg:text-lg md:text-base sm:text-sm"></p>
+        <img id='icon' class="lg:h-24 lg:w-24 md:h-16 md:h-16">
+        <p id="info" class="capitalize lg:text-4xl md:text-3xl sm:text-3xl"></p>
+      </div>
+  
+      <div id='mainTemperature' class="divide-y-2 divide-gray-200 divide-opacity-20 text-center">
+        <p id='temperature' class="text-9xl ml-10 pb-4"></p>
+        <div class="tracking-widest pt-6 space-y-4">
+          <p id="feelsLike" class=""></p>
+          <p id="sunrise"></p>
+          <p id="sunset"></p>
+        </div>
+      </div>
+
     </div>
 
-    <div id='mainTemperature' class="absolute right-0">
-      <p id='temperature' class="text-9xl"></p>
-      <div class="tracking-widest">
-        <p id="sunrise"></p>
-        <p id="sunset"></p>
-        <!-- <p id='feelsLike'></p> -->
-        <!-- <p id='high' class="text-2xl mr-2"></p>
-        <p id='low'class="text-2xl text-red-300"></p> -->
+    <div id='forecastContainer' class="items-center flex w-full h-1/4 justify-between pt-8 lg:text-xl m:text-lg">
+      <div class='forecast flex-shrink h-16 w-16'>
+        <div class='forecastDate'></div>
+        <img src="" class='forecastIcon'>
+        <div class="forecastInfo"></div>
+        <div class='forecastTemp'></div>
+      </div>
+      <div class='forecast flex-shrink h-16 w-16'>
+        <div class='forecastDate'></div>
+        <img src="" class='forecastIcon'>
+        <div class="forecastInfo"></div>
+        <div class='forecastTemp'></div>
+      </div>
+      <div class='forecast flex-shrink h-16 w-16'>
+        <div class='forecastDate'></div>
+        <img src="" class='forecastIcon'>
+        <div class="forecastInfo"></div>
+        <div class='forecastTemp'></div>
+      </div>
+      <div class='forecast flex-shrink h-16 w-16'>
+        <div class='forecastDate'></div>
+        <img src="" class='forecastIcon'>
+        <div class="forecastInfo"></div>
+        <div class='forecastTemp'></div>
+      </div>
+      <div class='forecast flex-shrink h-16 w-16'>
+        <div class='forecastDate'></div>
+        <img src="" class='forecastIcon'>
+        <div class="forecastInfo"></div>
+        <div class='forecastTemp'></div>
+      </div>
+      <div class='forecast flex-shrink h-16 w-16'>
+        <div class='forecastDate'></div>
+        <img src="" class='forecastIcon'>
+        <div class="forecastInfo"></div>
+        <div class='forecastTemp'></div>
+      </div>
+      <div class='forecast flex-shrink h-16 w-16'>
+        <div class='forecastDate'></div>
+        <img src="" class='forecastIcon'>
+        <div class="forecastInfo"></div>
+        <div class='forecastTemp'></div>
       </div>
     </div>
-
-  <div id='forecastContainer' class="flex absolute bottom-0">
-    <p id='forecastOne'></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-  </div>
 
   </div>
 
