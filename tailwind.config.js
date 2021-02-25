@@ -1,5 +1,8 @@
 module.exports = {
-  purge: [],
+  purge: [
+    '/Users/justincaovan/Desktop/Projects/Weather/script.js',
+    '/Users/justincaovan/Desktop/Projects/Weather/index.html',
+    ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
